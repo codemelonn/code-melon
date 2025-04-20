@@ -7,16 +7,18 @@ const helmet = require("helmet");
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-const frontendFilesPath = path.join(__dirname, "..", "frontend"); 
+const frontendFilesPath = path.join(__dirname, "../docs");
+
 
 const finalScores = {};
 
 app.use(express.static(frontendFilesPath));
 app.use(helmet()); 
 
-app.get("/", (req, res, next) => {
-  res.sendFile(path.join(frontendFilesPath, "index.html")); 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontendFilesPath, "index.html"));
 });
+
 
 app.use(
   helmet.contentSecurityPolicy({
