@@ -15,9 +15,9 @@ const finalScores = {};
 app.use(express.static(frontendFilesPath));
 app.use(helmet()); 
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(frontendFilesPath, "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(frontendFilesPath, "index.html"));
+// });
 
 
 app.use(
