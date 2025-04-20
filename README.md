@@ -1,2 +1,2 @@
-# code-melon
-My person website!
+# Pearl
+Pearl is an imitation Tetris game!

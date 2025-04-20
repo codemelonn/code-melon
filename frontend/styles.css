@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.grid {
+  display: grid;
+  grid-template-columns: 300px 200px 300px 200px;
+  align-items: start;
+  justify-content: left;
+  gap: 20px;
+}
+
+.p1-right-side {
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-board {
+  border: solid 2px;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 13%; /* Places buttons near the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 100px; /* Space between buttons */
+  z-index: 2;
+}
+
+.ready-button-container {
+  position: absolute; 
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.ready-button {
+  background-color: #f39c12;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.one-player-button, .two-player-button {
+  border: none; /* Removes border */
+  background: none; /* Removes fill */
+  color: white; /* Text color (change if needed) */
+  font-size: 25px;
+  padding: 10px 20px;
+  white-space: nowrap; /* Prevents text from wrapping */
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out, filter 0.15s ease-in-out;
+}
+
+.one-player-button:hover, .two-player-button:hover {
+  text-decoration: underline;
+  transform: translateY(-3px); /* Slight lift */
+  filter: drop-shadow(2px 2px 0px var(--deep-red));
+}
+
+.play-button {
+  background-color: #4caf50;
+  font-size: 16px;
+  padding: 15px 30px;
+  cursor: pointer;
+
+  z-index: 2; 
+}
+
+.index-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  width: 100vw;
+  height: 100vh; 
+  position: relative;
+
+  z-index: 2; 
+}
+
+/*
+    image is 88x75 px
+*/
+.start-screen {
+  position: fixed; /* Keeps it fixed in place */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers it */
+  width: 880px; 
+  height: 750px;
+  object-fit: cover; 
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+
+  z-index: 1; /* Keeps it in the background */
+}
+
+.letter-container {
+  display: flex; 
+  gap: 20px;
+  position: absolute; 
+  top: 14%; /* Adjusted to place at the top of the image */
+  left: 51%;
+  transform: translateX(-50%);
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  z-index: 2;
+}
+
+/* 
+    letters were made with a 24x24 pixel grid, 
+    sized up x5
+*/
+.letter {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  animation: bounce 2s ease-in-out infinite alternate; 
+  z-index: 2;
+}
+/*
+    image is 88x75
+*/
+.pearl {
+  position: absolute;
+  top: 32%; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 440px; /* Keep original resolution */
+  height: 375px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  animation: shine 2s infinite alternate ease-in-out;
+  z-index: 2; /* Ensure it's between letters and buttons */
+}
+
+@keyframes shine {
+  0% {
+    filter: brightness(1);
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    filter: brightness(1.1);
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+body {
+  overflow: hidden;
+}
+
+* {
+  font-family: 'Press Start 2P', normal;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+
+:root {
+  --deep-red: #4e0714; 
+  --ruby: #781727;
+  --puce: #AC5B67; 
+  --pink-pearl: #E2B3C2; 
+  --almond: #EFD4C4; 
+}
+
+#gameCodeInput {
+  font-size: 16px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: 2px solid #000;
+  width: 300px;
+}

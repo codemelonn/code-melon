@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEARL</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link 
+    href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+    rel="stylesheet"
+    />
+</head>
+<body>
+    <!-- Waiting screen for generating the room code -->
+    <div id="waitingScreen" class="waiting-screen"> 
+        <h1>PEARL</h1>
+        <button id="generateCodeButton">Generate Game Code</button>
+        <p>Game Code: <span id="gameCodeDisplay" class="game-code-display"></span></p>
+        <input type="text" id="gameCodeInput" placeholder="Enter Game Code">
+        <button id="joinGameButton">Join Game</button>
+    </div>
+
+
+    <div id="gameScreen" class="game-screen" style="display: none;">
+        <div class="grid">
+
+            <canvas id="board" class="game-board"></canvas>
+            <div class="p1-right-side">
+                <div>
+                    <h1>PEARL</h1>
+                    <h6>PLAYER 1</h6>
+                    <p>Score: <span id="player1-score">0</span></p>
+                    <p>Lines: <span id="player1-lines">0</span></p>
+                    <p>Level: <span id="player1-level">0</span></p>
+                    <canvas id="next" class="next"></canvas>
+                </div>
+            </div>
+
+            <canvas id="p2board" class="game-board"></canvas>
+            <div class="p2-right-side"> 
+                <div>
+                    <h1>PEARL</h1>
+                    <h6>PLAYER 2</h6>
+                    <p>Score: <span id="player2-score">0</span></p>
+                    <p>Lines: <span id="player2-lines">0</span></p>
+                    <p>Level: <span id="player2-level">0</span></p>
+                    <canvas id="p2next" class="p2next"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="ready-button-container">
+            <button id="readyButton" class="ready-button">I'M READY!</button>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="constants.js"></script>
+    <script type="text/javascript" src="piece.js"></script>
+    <script type="text/javascript" src="board.js"></script>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script> 
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
